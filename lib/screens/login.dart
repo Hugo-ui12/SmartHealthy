@@ -12,18 +12,46 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
+
           child: Column(
             children: [
               const SizedBox(height: 80),
 
               Image.asset('assets/images/logo2.png', width: 180),
 
+              const SizedBox(height: 15),
+
+              const Text(
+                'Tu salud conectada, tu bienestar siempre acompañado',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
               const SizedBox(height: 40),
+
+              const Text(
+                'Iniciar Sesión',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              const SizedBox(height: 10),
 
               TextField(
                 decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Correo electrónico',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
 
@@ -32,18 +60,44 @@ class LoginScreen extends StatelessWidget {
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.lock),
                   labelText: 'Contraseña',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
+
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text('¿Olvidaste tu contraseña?'),
+                ),
+              ),
+
+              const SizedBox(height: 10),
 
               SizedBox(
                 width: double.infinity,
+                height: 50,
+
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text('Iniciar sesión'),
+
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+
+                  child: const Text(
+                    'Iniciar sesión',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 ),
               ),
 
@@ -51,6 +105,7 @@ class LoginScreen extends StatelessWidget {
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+
                 children: [
                   const Text('¿No tienes cuenta?'),
 
