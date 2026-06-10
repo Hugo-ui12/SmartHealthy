@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool ocultarPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +22,9 @@ class LoginScreen extends StatelessWidget {
 
           child: Column(
             children: [
-              const SizedBox(height: 80),
+              const SizedBox(height: 100),
 
-              Image.asset('assets/images/logo2.png', width: 180),
+              Image.asset('assets/images/logo2.png', width: 200),
 
               const SizedBox(height: 15),
 
@@ -56,14 +63,28 @@ class LoginScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 15),
-
               TextField(
-                obscureText: true,
+                obscureText: ocultarPassword,
+
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.lock),
+
                   labelText: 'Contraseña',
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      ocultarPassword ? Icons.visibility : Icons.visibility_off,
+                    ),
+
+                    onPressed: () {
+                      setState(() {
+                        ocultarPassword = !ocultarPassword;
+                      });
+                    },
                   ),
                 ),
               ),
